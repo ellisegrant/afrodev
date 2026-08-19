@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { contact, person, writing } from '../content'
+import { collaboration, contact, person, writing } from '../content'
 
 export function Contact() {
   const [copied, setCopied] = useState(false)
@@ -29,6 +29,13 @@ export function Contact() {
             {contact.heading}
           </h2>
           <p className="mt-8 max-w-lg text-[0.9375rem] leading-relaxed text-muted">{contact.body}</p>
+
+          {collaboration ? (
+            <div className="mt-10 max-w-lg border-t border-rule pt-6">
+              <span className="label mb-3 block text-accent">{collaboration.label}</span>
+              <p className="text-[0.9375rem] leading-relaxed text-muted">{collaboration.body}</p>
+            </div>
+          ) : null}
         </div>
 
         <div className="reveal flex flex-col justify-end gap-6 lg:col-span-4" style={{ transitionDelay: '120ms' }}>

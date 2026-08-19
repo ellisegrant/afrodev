@@ -10,7 +10,7 @@ function repoPath(url) {
 }
 
 function Row({ project, open, onToggle, onHover }) {
-  const { id, title, year, role, blurb, stack, href, repo, note, image } = project
+  const { id, title, year, role, blurb, stack, href, repo, note, image, status } = project
 
   return (
     <li
@@ -32,11 +32,20 @@ function Row({ project, open, onToggle, onHover }) {
 
         <span className="min-w-0">
           <span
-            className={`block font-display text-2xl leading-tight transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:text-4xl lg:text-5xl ${
+            className={`flex items-baseline gap-3 font-display text-2xl leading-tight transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:text-4xl lg:text-5xl ${
               open ? 'translate-x-0' : 'group-hover:translate-x-2'
             }`}
           >
             {title}
+            {status === 'ongoing' ? (
+              <span className="label flex shrink-0 items-center gap-1.5 text-accent">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-70" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
+                </span>
+                In progress
+              </span>
+            ) : null}
           </span>
           {repoPath(repo) ? (
             <span className="label mt-2 flex items-center gap-1.5 normal-case tracking-normal">

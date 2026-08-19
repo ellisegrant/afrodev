@@ -36,6 +36,18 @@ export const hero = {
   ],
 }
 
+// The two things worth saying out loud that a project list cannot say for you:
+// what you want to work on next, and that you are open to building with people.
+export const lookingFor = {
+  label: 'What I am looking for',
+  body: 'I follow football closely, and I want to work where the game meets software — club and league products, fan platforms, ticketing and matchday tooling, performance and match data. If you are building in that space, I would rather hear about it early than late.',
+}
+
+export const collaboration = {
+  label: 'Building something?',
+  body: 'I like building things with other people, including the half-formed ones. If you have an idea you want made — a product, a tool, a weekend experiment — reach out even if it is not fully thought through yet.',
+}
+
 // Three short present-tense lines. This is the part of a portfolio that goes
 // stale fastest — rewrite it whenever what you are actually doing changes.
 export const focus = [
@@ -52,6 +64,8 @@ export const links = [
 ]
 
 // Projects render as an indexed list. Order matters — best work first.
+// Set `status: 'ongoing'` on anything still actively being built and the row
+// shows a live marker. Omit it and the project reads as shipped.
 // `year`, `role` and `stack` are pulled from the repos; `blurb` is the part
 // worth rewriting in your own voice.
 //
@@ -184,6 +198,7 @@ export const about = [
   'I am Ellise Grant Boamah — most people I work with call me Afrodev. I am a software developer based in Accra, Ghana, and I have spent the last few years building full-stack products for the web: learning platforms, realtime apps, marketing sites, and the APIs underneath them.',
   'I care about the parts that do not photograph well. A clear data model. Auth you cannot walk around. Error states written for the person having the bad day. Code the next developer can read without a meeting.',
   'I work end to end — I am as comfortable shaping a Postgres schema as I am arguing about type scale — which means fewer handoffs, fewer things lost between them, and a product that feels like one decision rather than five.',
+  'Away from the editor I am watching football. It is the thing I would most like to build for: the sport moves enormous amounts of money, attention and data, and a lot of the software around it is still worse than the game deserves.',
 ]
 
 // TODO: fill these in, or delete the section entirely from App.jsx.
@@ -199,5 +214,5 @@ export const writing = [
 
 export const contact = {
   heading: 'Have something worth building?',
-  body: 'Open to freelance projects, contract work and full-time roles. Tell me what you are making and where it is stuck — I read everything.',
+  body: 'Open to freelance projects, contract work and full-time roles — and always open to building something with someone. Tell me what you are making and where it is stuck. I read everything.',
 }

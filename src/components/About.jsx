@@ -1,4 +1,4 @@
-import { about, experience, links, person } from '../content'
+import { about, experience, links, lookingFor, person } from '../content'
 import { Section } from './Section'
 
 export function About() {
@@ -37,6 +37,13 @@ export function About() {
                   </li>
                 ))}
               </ul>
+            </div>
+          ) : null}
+
+          {lookingFor ? (
+            <div className="mb-10 border-l-2 border-accent pl-5">
+              <span className="label mb-3 block text-accent">{lookingFor.label}</span>
+              <p className="text-sm leading-relaxed text-muted">{lookingFor.body}</p>
             </div>
           ) : null}
 
