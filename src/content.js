@@ -13,7 +13,7 @@ export const person = {
   role: 'Software Developer',
   location: 'Accra, Ghana',
   timezone: 'Africa/Accra',
-  email: 'inoxcel4u@gmail.com',
+  email: 'elliseboamah@gmail.com',
   available: true,
   availableNote: 'Available for freelance & full-time work',
 }
@@ -23,9 +23,26 @@ export const person = {
 export const hero = {
   line: 'I build software that ships, holds up, and stays understandable a year later.',
   emphasis: ['ships', 'holds up'],
-  intro:
-    'Full-stack developer working across React, Node and Postgres. Most of my work is the unglamorous middle: auth that actually locks, schemas that survive a change of mind, interfaces people do not need explained to them.',
+  // Written as segments so parts of the sentence can be links. A segment with
+  // an `href` renders in the accent colour and navigates; plain strings do not.
+  intro: [
+    { text: 'Full-stack developer working across React, Node and Postgres. Most of my ' },
+    { text: 'work', href: '#work' },
+    { text: ' is the unglamorous middle: auth that actually locks, schemas that survive a change of mind, interfaces people do not need explained to them. More on ' },
+    { text: 'how I think', href: '#about' },
+    { text: ' and ' },
+    { text: 'what I reach for', href: '#stack' },
+    { text: '.' },
+  ],
 }
+
+// Three short present-tense lines. This is the part of a portfolio that goes
+// stale fastest — rewrite it whenever what you are actually doing changes.
+export const focus = [
+  'Designing APIs that stay readable as the product grows past their first shape.',
+  'Building auth and permissions that hold up when real users arrive.',
+  'Shaping Postgres schemas that survive a change of mind.',
+]
 
 export const links = [
   // TODO: replace with your real handles.
@@ -157,6 +174,12 @@ export const about = [
 // TODO: fill these in, or delete the section entirely from App.jsx.
 export const experience = [
   // { org: 'Company', role: 'Software Developer', period: '2024 — Present', note: 'One line on what you shipped.' },
+]
+
+// Posts render newest first. `date` is shown as-is, so write it the way you
+// want it read. An empty array hides the whole section.
+export const writing = [
+  // { title: 'Why our LMS auth was wrong twice', date: 'August 2026', href: 'https://...' },
 ]
 
 export const contact = {

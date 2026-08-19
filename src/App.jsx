@@ -3,6 +3,7 @@ import { Hero } from './components/Hero'
 import { Work } from './components/Work'
 import { About } from './components/About'
 import { Stack } from './components/Stack'
+import { Writing } from './components/Writing'
 import { Contact } from './components/Contact'
 import { Footer } from './components/Footer'
 import { TabBar } from './components/TabBar'
@@ -25,6 +26,7 @@ export default function App() {
         <Work />
         <About />
         <Stack />
+        <Writing />
         <Contact />
       </main>
       <Footer />

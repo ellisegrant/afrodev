@@ -3,6 +3,12 @@ import { projects } from '../content'
 import { Section } from './Section'
 import { HoverPreview } from './HoverPreview'
 
+/** github.com/owner/name -> owner/name, for the mono slug under a title. */
+function repoPath(url) {
+  if (!url) return null
+  return url.replace(/^https?:\/\/(www\.)?github\.com\//, '').replace(/\.git$/, '')
+}
+
 function Row({ project, open, onToggle, onHover }) {
   const { id, title, year, role, blurb, stack, href, repo, note, image } = project
 
@@ -32,6 +38,14 @@ function Row({ project, open, onToggle, onHover }) {
           >
             {title}
           </span>
+          {repoPath(repo) ? (
+            <span className="label mt-2 flex items-center gap-1.5 normal-case tracking-normal">
+              <svg viewBox="0 0 18 18" className="h-3 w-3 shrink-0" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M7 14.5c-3 1-3-1.5-4-2m8 4v-2.6c0-.8-.1-1.1-.4-1.4 2-.2 3.9-1 3.9-4.3a3.3 3.3 0 0 0-.9-2.3c.1-.2.4-1.1-.1-2.3 0 0-.8-.2-2.5 1a8.5 8.5 0 0 0-4.5 0C4.8 3.3 4 3.5 4 3.5c-.5 1.2-.2 2.1-.1 2.3a3.3 3.3 0 0 0-.9 2.3c0 3.3 1.9 4.1 3.9 4.3-.2.3-.4.7-.4 1.2V16" />
+              </svg>
+              {repoPath(repo)}
+            </span>
+          ) : null}
           <span className="label mt-1.5 block sm:hidden">
             {role} — {year}
           </span>

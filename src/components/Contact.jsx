@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { contact, person } from '../content'
+import { contact, person, writing } from '../content'
 
 export function Contact() {
   const [copied, setCopied] = useState(false)
@@ -24,7 +24,7 @@ export function Contact() {
     <section id="contact" className="shell border-t border-rule py-20 sm:py-28 lg:py-36">
       <div className="grid gap-12 lg:grid-cols-12">
         <div className="reveal lg:col-span-8">
-          <span className="label mb-6 block">04 — Contact</span>
+          <span className="label mb-6 block">{writing.length ? '05' : '04'} — Contact</span>
           <h2 className="font-display text-4xl leading-[1.05] sm:text-6xl lg:text-7xl">
             {contact.heading}
           </h2>
