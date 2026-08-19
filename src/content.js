@@ -79,11 +79,11 @@ export const projects = [
     year: '2026',
     role: 'Solo',
     status: 'ongoing',
-    // TODO: rewrite in your own words — I know the shape of the project, not
-    // the specifics of what you are building.
+    // TODO: expand once the prediction approach settles — Ellise is sending
+    // a fuller description.
     blurb:
-      'A Model Context Protocol server that gives an AI assistant structured access to SportyBet data — fixtures, odds and markets — so questions about a matchday can be answered against live data instead of a stale training set. The football project I have been waiting for an excuse to build.',
-    stack: ['MCP', 'TypeScript', 'Node'],
+      'A Model Context Protocol server that predicts match outcomes — football first, other sports after. It gives an assistant structured access to fixtures, form and odds so a prediction is reasoned over live data rather than guessed from a stale training set, and so the reasoning behind a call can be inspected instead of taken on trust.',
+    stack: ['MCP', 'TypeScript', 'Node', 'Sports data'],
     href: null,
     repo: null,
     image: null,
@@ -95,9 +95,9 @@ export const projects = [
     year: '2026',
     role: 'Solo',
     status: 'ongoing',
-    // TODO: rewrite in your own words.
+    // TODO: expand once the feature set settles.
     blurb:
-      'An MCP server for Upwork, so the busywork around freelancing — searching contracts, drafting proposals, tracking what is open — happens where I already am rather than in another tab.',
+      'An MCP server that keeps an eye on Upwork for me — prompting when a proposal moves or a message lands, and drafting a cover letter against the specifics of the role rather than from a template. The aim is to spend the time on the work instead of the pipeline around it.',
     stack: ['MCP', 'TypeScript', 'Node'],
     href: null,
     repo: null,
@@ -106,11 +106,9 @@ export const projects = [
   },
   {
     id: '003',
-    // TODO: confirm your role and which parts you built — the wording below
-    // describes the product, not your specific contribution.
     title: 'Ventry Tickets',
     year: '2026',
-    role: 'Frontend',
+    role: 'Full-stack',
     blurb:
       'A digital ticketing platform for African events — organisers publish an event, sell tiered ticket types, run discount codes and check attendees in by QR at the door. Built for the realities of the market it serves: USSD ticketing for buyers without smartphones, WhatsApp delivery, multi-language support, and a transparent fee calculator that shows an organiser exactly what lands in their account before they commit.',
     stack: ['Next.js', 'React', 'Tailwind', 'Vercel', 'Payments', 'QR check-in'],
@@ -201,7 +199,7 @@ export const projects = [
   },
   {
     id: '010',
-    title: 'GoGMI Institute Site',
+    title: 'Gulf of Guinea Maritime Institute',
     year: '2026',
     role: 'Frontend',
     blurb:
