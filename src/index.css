@@ -83,6 +83,63 @@
   }
 }
 
+
+@layer components {
+  /* Long-form post body. Written by hand rather than pulled from a typography
+     plugin, so the measure, rhythm and code styling match the rest of the site
+     instead of fighting it. */
+  .prose {
+    @apply max-w-2xl text-ink;
+  }
+  .prose > * + * {
+    @apply mt-6;
+  }
+  .prose p {
+    @apply text-[1.0625rem] leading-[1.75] text-muted;
+  }
+  .prose h2 {
+    @apply mt-14 font-display text-2xl leading-tight text-ink sm:text-3xl;
+  }
+  .prose h3 {
+    @apply mt-10 font-display text-xl leading-tight text-ink;
+  }
+  .prose a {
+    @apply text-accent underline decoration-accent/35 underline-offset-4 transition-colors hover:decoration-accent;
+  }
+  .prose strong {
+    @apply font-semibold text-ink;
+  }
+  .prose ul,
+  .prose ol {
+    @apply space-y-2 pl-5 text-[1.0625rem] leading-[1.75] text-muted;
+  }
+  .prose ul {
+    @apply list-disc;
+  }
+  .prose ol {
+    @apply list-decimal;
+  }
+  .prose li::marker {
+    @apply text-rule;
+  }
+  .prose blockquote {
+    @apply border-l-2 border-accent pl-5 italic text-muted;
+  }
+  .prose hr {
+    @apply my-12 border-rule;
+  }
+  /* Inline code sits inside running prose, so it must not shout. */
+  .prose :not(pre) > code {
+    @apply rounded border border-rule bg-surface px-1.5 py-0.5 font-mono text-[0.85em] text-ink;
+  }
+  .prose pre {
+    @apply overflow-x-auto border border-rule bg-surface p-5 font-mono text-[0.8125rem] leading-relaxed;
+  }
+  .prose pre code {
+    @apply text-ink;
+  }
+}
+
 @layer utilities {
   /* Home-indicator clearance on notched phones; a no-op everywhere else. */
   .pb-safe {

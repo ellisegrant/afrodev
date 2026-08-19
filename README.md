@@ -26,6 +26,30 @@ machine. Fill them in before sending the site to anyone:
 - `role` and `year` per project, and the `experience` array if you want a work
   history block in the About section (leave it empty and the block disappears)
 
+
+## Writing
+
+Posts are Markdown files in `src/posts/`. Adding one means adding a file — no
+index to update, no route to register:
+
+```markdown
+---
+title: Keeping a watch party in sync
+date: 2026-07-18
+summary: One sentence, shown in the list on the home page.
+draft: true
+---
+
+Body copy here.
+```
+
+`date` drives the ordering (newest first) and is reformatted for display, so
+`2026-07-18` renders as "18 July 2026". Set `draft: true` to keep a post out of
+the site entirely while you work on it.
+
+Each post gets a real route at `/writing/<filename>`. `vercel.json` rewrites all
+paths to `index.html` so those routes survive a hard refresh.
+
 ## Design
 
 Editorial/typographic: paper background, near-black ink, one warm accent used

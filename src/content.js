@@ -75,6 +75,37 @@ export const links = [
 export const projects = [
   {
     id: '001',
+    title: 'SportyBet MCP Server',
+    year: '2026',
+    role: 'Solo',
+    status: 'ongoing',
+    // TODO: rewrite in your own words — I know the shape of the project, not
+    // the specifics of what you are building.
+    blurb:
+      'A Model Context Protocol server that gives an AI assistant structured access to SportyBet data — fixtures, odds and markets — so questions about a matchday can be answered against live data instead of a stale training set. The football project I have been waiting for an excuse to build.',
+    stack: ['MCP', 'TypeScript', 'Node'],
+    href: null,
+    repo: null,
+    image: null,
+    note: 'In progress.',
+  },
+  {
+    id: '002',
+    title: 'Upwork MCP Server',
+    year: '2026',
+    role: 'Solo',
+    status: 'ongoing',
+    // TODO: rewrite in your own words.
+    blurb:
+      'An MCP server for Upwork, so the busywork around freelancing — searching contracts, drafting proposals, tracking what is open — happens where I already am rather than in another tab.',
+    stack: ['MCP', 'TypeScript', 'Node'],
+    href: null,
+    repo: null,
+    image: null,
+    note: 'In progress.',
+  },
+  {
+    id: '003',
     // TODO: confirm your role and which parts you built — the wording below
     // describes the product, not your specific contribution.
     title: 'Ventry Tickets',
@@ -89,7 +120,7 @@ export const projects = [
     note: 'Ticketing, payments, organiser tooling.',
   },
   {
-    id: '002',
+    id: '004',
     title: 'GoGMI Learning Platform',
     year: '2026',
     role: 'Full-stack',
@@ -102,7 +133,7 @@ export const projects = [
     note: 'Frontend, API and schema.',
   },
   {
-    id: '003',
+    id: '005',
     title: 'GoGMI Intranet',
     year: '2026',
     role: 'Full-stack',
@@ -115,7 +146,7 @@ export const projects = [
     note: 'Separate frontend and backend services.',
   },
   {
-    id: '004',
+    id: '006',
     title: 'Jesley',
     year: '2026',
     role: 'Full-stack',
@@ -128,7 +159,7 @@ export const projects = [
     note: 'Realtime sync, rooms, presence.',
   },
   {
-    id: '005',
+    id: '007',
     title: 'The Cabin Tea Podcast',
     year: '2026',
     role: 'Design & build',
@@ -141,7 +172,7 @@ export const projects = [
     note: 'Build-time meta generation.',
   },
   {
-    id: '006',
+    id: '008',
     title: 'Staay',
     year: '2026',
     role: 'Frontend',
@@ -156,7 +187,7 @@ export const projects = [
     note: 'WebGL, motion, performance budget.',
   },
   {
-    id: '007',
+    id: '009',
     title: 'Inoxcel',
     year: '2026',
     role: 'Frontend',
@@ -169,7 +200,7 @@ export const projects = [
     note: 'Routing architecture, page system.',
   },
   {
-    id: '008',
+    id: '010',
     title: 'GoGMI Institute Site',
     year: '2026',
     role: 'Frontend',
