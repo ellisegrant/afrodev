@@ -61,6 +61,21 @@ export const links = [
 export const projects = [
   {
     id: '001',
+    // TODO: confirm your role and which parts you built — the wording below
+    // describes the product, not your specific contribution.
+    title: 'Ventry Tickets',
+    year: '2026',
+    role: 'Frontend',
+    blurb:
+      'A digital ticketing platform for African events — organisers publish an event, sell tiered ticket types, run discount codes and check attendees in by QR at the door. Built for the realities of the market it serves: USSD ticketing for buyers without smartphones, WhatsApp delivery, multi-language support, and a transparent fee calculator that shows an organiser exactly what lands in their account before they commit.',
+    stack: ['Next.js', 'React', 'Tailwind', 'Vercel', 'Payments', 'QR check-in'],
+    href: 'https://www.ventrytickets.com',
+    repo: null,
+    image: '/projects/ventry.jpg',
+    note: 'Ticketing, payments, organiser tooling.',
+  },
+  {
+    id: '002',
     title: 'GoGMI Learning Platform',
     year: '2026',
     role: 'Full-stack',
@@ -73,7 +88,7 @@ export const projects = [
     note: 'Frontend, API and schema.',
   },
   {
-    id: '002',
+    id: '003',
     title: 'GoGMI Intranet',
     year: '2026',
     role: 'Full-stack',
@@ -86,7 +101,7 @@ export const projects = [
     note: 'Separate frontend and backend services.',
   },
   {
-    id: '003',
+    id: '004',
     title: 'Jesley',
     year: '2026',
     role: 'Full-stack',
@@ -99,7 +114,7 @@ export const projects = [
     note: 'Realtime sync, rooms, presence.',
   },
   {
-    id: '004',
+    id: '005',
     title: 'The Cabin Tea Podcast',
     year: '2026',
     role: 'Design & build',
@@ -112,7 +127,7 @@ export const projects = [
     note: 'Build-time meta generation.',
   },
   {
-    id: '005',
+    id: '006',
     title: 'Staay',
     year: '2026',
     role: 'Frontend',
@@ -127,7 +142,7 @@ export const projects = [
     note: 'WebGL, motion, performance budget.',
   },
   {
-    id: '006',
+    id: '007',
     title: 'Inoxcel',
     year: '2026',
     role: 'Frontend',
@@ -140,7 +155,7 @@ export const projects = [
     note: 'Routing architecture, page system.',
   },
   {
-    id: '007',
+    id: '008',
     title: 'GoGMI Institute Site',
     year: '2026',
     role: 'Frontend',
