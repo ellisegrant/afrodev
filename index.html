@@ -3,8 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#F7F5F0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <!-- Installed-app chrome: matched light/dark bars, standalone launch, and
+         a title short enough to sit under a home-screen icon. -->
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F7F5F0" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#11100D" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Afrodev" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/icon-180.png" />
 
     <title>Ellise Grant Boamah — Software Developer</title>
     <meta name="description" content="Ellise Grant Boamah (Afrodev) is a software developer in Accra, Ghana, building full-stack products for the web." />

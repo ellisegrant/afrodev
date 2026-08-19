@@ -2,13 +2,13 @@ import { useEffect, useState } from 'react'
 import { person } from '../content'
 import { ThemeToggle } from './ThemeToggle'
 
-// `always: true` keeps a link in the bar on narrow screens; the rest appear
-// from the `sm` breakpoint up, so the mobile bar never crowds the wordmark.
+// Phones navigate from the bottom tab bar, so the top bar carries only the
+// wordmark and the theme control — the same split a native app uses.
 const items = [
-  { href: '#work', label: 'Work', always: true },
+  { href: '#work', label: 'Work' },
   { href: '#about', label: 'About' },
   { href: '#stack', label: 'Stack' },
-  { href: '#contact', label: 'Contact', always: true },
+  { href: '#contact', label: 'Contact' },
 ]
 
 export function Nav() {
@@ -23,7 +23,7 @@ export function Nav() {
 
   return (
     <header
-      className={`sticky top-0 z-40 bg-paper/85 backdrop-blur-sm transition-colors duration-300 ${
+      className={`pt-safe sticky top-0 z-40 bg-paper/90 backdrop-blur-md transition-colors duration-300 ${
         scrolled ? 'border-b border-rule' : 'border-b border-transparent'
       }`}
     >
@@ -41,9 +41,7 @@ export function Nav() {
             <a
               key={item.href}
               href={item.href}
-              className={`label link-underline transition-colors hover:text-ink ${
-                item.always ? 'inline-block' : 'hidden sm:inline-block'
-              }`}
+              className="label link-underline hidden transition-colors hover:text-ink sm:inline-block"
             >
               {item.label}
             </a>

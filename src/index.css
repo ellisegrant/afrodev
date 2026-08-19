@@ -27,11 +27,24 @@
 
   html {
     background-color: rgb(var(--paper));
+    /* Stops the whole page rubber-banding past its ends, which is the single
+       biggest tell that an installed PWA is "just a website". */
+    overscroll-behavior-y: none;
   }
 
   body {
     @apply bg-paper text-ink font-sans antialiased;
     font-feature-settings: 'ss01' 1, 'cv01' 1;
+    overscroll-behavior-y: none;
+  }
+
+  /* Chrome-like elements should not be selectable on touch — long-pressing a
+     tab and getting a text selection handle breaks the app illusion. */
+  nav,
+  header,
+  button {
+    -webkit-user-select: none;
+    user-select: none;
   }
 
   ::selection {
@@ -71,6 +84,17 @@
 }
 
 @layer utilities {
+  /* Home-indicator clearance on notched phones; a no-op everywhere else. */
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .pt-safe {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+  /* Room for the fixed tab bar so the footer is never trapped underneath it. */
+  .pb-tabbar {
+    padding-bottom: calc(4.25rem + env(safe-area-inset-bottom, 0px));
+  }
   .reveal {
     opacity: 0;
     transform: translateY(18px);
@@ -91,6 +115,10 @@
     opacity: 0.035;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
   }
+}
+
+section[id] {
+  scroll-margin-top: 4rem;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -42,6 +42,28 @@ Theme is toggled by a class on `<html>`, persisted to `localStorage`, and set by
 a small inline script in `index.html` before first paint so the page never
 flashes the wrong theme.
 
+## Mobile
+
+Phones get app chrome rather than a shrunk-down desktop page:
+
+- A fixed bottom **tab bar** (`src/components/TabBar.jsx`) with hairline icons
+  drawn to match the page's rule weight. It highlights the section you are in
+  by scroll position, rAF-throttled, with a `visibilitychange` catch-up for
+  when the page comes back from the background.
+- Top bar drops to wordmark + theme control, the way a native app splits
+  identity from navigation.
+- 56px tab targets, `env(safe-area-inset-*)` padding for notched phones,
+  `overscroll-behavior: none` to kill rubber-banding, and no text selection on
+  chrome elements.
+- The site is **installable**: `public/manifest.webmanifest` plus apple-touch
+  meta launch it standalone from the home screen, with light/dark status bars.
+
+Everything above is `sm:`-gated — the desktop layout is untouched by it.
+
+Icons were generated from SVG via `qlmanage`/`sips`. To regenerate, edit the
+source SVG and re-run those; `icon-maskable-512.png` keeps the glyph inside the
+80% safe zone so Android's mask never clips it.
+
 ## Structure
 
 ```
@@ -52,6 +74,7 @@ src/
   hooks/useReveal.js      one IntersectionObserver for all scroll reveals
   components/
     Nav, Hero, Work, About, Stack, Contact, Footer
+    TabBar.jsx              mobile bottom tab bar + scroll spy
     Section.jsx           shared numbered section header
     Clock.jsx             live Accra time
     ThemeToggle.jsx
@@ -59,7 +82,7 @@ src/
 
 ## Before deploying
 
-- Replace `public/favicon.svg` with a real mark
+- Replace `public/favicon.svg` and the `icon-*.png` set with a real mark
 - Add `public/og.png` (1200×630) — `index.html` already points at it
 - Set the canonical URL in `index.html` if you use a custom domain
 

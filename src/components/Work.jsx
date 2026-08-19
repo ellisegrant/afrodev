@@ -11,7 +11,7 @@ function Row({ project, open, onToggle }) {
         type="button"
         onClick={onToggle}
         aria-expanded={open}
-        className="group grid w-full grid-cols-[auto_1fr_auto] items-baseline gap-x-4 py-5 text-left sm:gap-x-8 sm:py-7"
+        className="group grid w-full grid-cols-[auto_1fr_auto] items-baseline gap-x-4 py-6 text-left transition-colors active:bg-ink/[0.04] sm:gap-x-8 sm:py-7 sm:active:bg-transparent"
       >
         <span className={`label transition-colors ${open ? 'text-accent' : 'group-hover:text-ink'}`}>
           {id}
@@ -30,12 +30,14 @@ function Row({ project, open, onToggle }) {
           </span>
         </span>
 
-        <span className="hidden items-baseline gap-8 sm:flex">
-          <span className="label w-32 text-right">{role}</span>
-          <span className="label tabular-nums">{year}</span>
+        <span className="flex items-baseline gap-8">
+          <span className="label hidden w-32 text-right sm:block">{role}</span>
+          <span className="label hidden tabular-nums sm:block">{year}</span>
           <span
             aria-hidden="true"
-            className={`label text-ink transition-transform duration-500 ${open ? 'rotate-45' : ''}`}
+            className={`label text-base leading-none text-ink transition-transform duration-500 sm:text-[0.6875rem] ${
+              open ? 'rotate-45' : ''
+            }`}
           >
             +
           </span>
