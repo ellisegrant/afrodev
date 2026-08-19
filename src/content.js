@@ -37,6 +37,10 @@ export const links = [
 // Projects render as an indexed list. Order matters — best work first.
 // `year`, `role` and `stack` are pulled from the repos; `blurb` is the part
 // worth rewriting in your own voice.
+//
+// `image` is a path under public/projects/. Rows without one simply render no
+// preview — nothing breaks, so add them as you capture them. Aim for roughly
+// 1000x480 (a 2:1 crop of the top of the page); see README for the recipe.
 export const projects = [
   {
     id: '001',
@@ -48,6 +52,7 @@ export const projects = [
     stack: ['React', 'Vite', 'Express', 'Prisma', 'PostgreSQL', 'JWT', 'Zod'],
     href: null, // TODO: live URL
     repo: null, // TODO: repo URL
+    image: null, // TODO: needs Postgres + env to run, so I could not capture it
     note: 'Frontend, API and schema.',
   },
   {
@@ -60,6 +65,7 @@ export const projects = [
     stack: ['React', 'Socket.IO', 'Express', 'Supabase', 'YouTube API'],
     href: null,
     repo: null,
+    image: null, // TODO: needs Supabase credentials to run
     note: 'Realtime sync, rooms, presence.',
   },
   {
@@ -72,6 +78,7 @@ export const projects = [
     stack: ['React Three Fiber', 'Three.js', 'Zustand', 'Framer Motion', 'Supabase'],
     href: null,
     repo: null,
+    image: null, // TODO: needs Supabase credentials to run
     note: 'WebGL, motion, performance budget.',
   },
   {
@@ -82,8 +89,9 @@ export const projects = [
     blurb:
       'A podcast site with real routes, per-episode social cards generated at build time, and an editorial layout that gives long-form show notes room to breathe.',
     stack: ['Vite', 'React Router', 'Tailwind', 'Vercel'],
-    href: null,
+    href: 'https://www.thecabintea.com/',
     repo: null,
+    image: '/projects/cabintea.jpg',
     note: 'Build-time meta generation.',
   },
   {
@@ -94,8 +102,9 @@ export const projects = [
     blurb:
       'Marketing site for a delivery consultancy. Every service is a real, linkable route rather than a client-side tab switch — shareable, indexable, and correct with the back button.',
     stack: ['React', 'React Router v7', 'Vite'],
-    href: null,
+    href: null, // TODO: live URL — captured from a local build
     repo: null,
+    image: '/projects/inoxcel.jpg',
     note: 'Routing architecture, page system.',
   },
 ]

@@ -1,15 +1,22 @@
 import { useState } from 'react'
 import { projects } from '../content'
 import { Section } from './Section'
+import { HoverPreview } from './HoverPreview'
 
-function Row({ project, open, onToggle }) {
-  const { id, title, year, role, blurb, stack, href, repo, note } = project
+function Row({ project, open, onToggle, onHover }) {
+  const { id, title, year, role, blurb, stack, href, repo, note, image } = project
 
   return (
-    <li className="reveal border-b border-rule">
+    <li
+      className="reveal border-b border-rule"
+      onMouseEnter={() => onHover(project)}
+      onMouseLeave={() => onHover(null)}
+    >
       <button
         type="button"
         onClick={onToggle}
+        onFocus={() => onHover(project)}
+        onBlur={() => onHover(null)}
         aria-expanded={open}
         className="group grid w-full grid-cols-[auto_1fr_auto] items-baseline gap-x-4 py-6 text-left transition-colors active:bg-ink/[0.04] sm:gap-x-8 sm:py-7 sm:active:bg-transparent"
       >
@@ -52,6 +59,21 @@ function Row({ project, open, onToggle }) {
       >
         <div className="overflow-hidden">
           <div className="grid gap-8 pb-10 sm:grid-cols-12 sm:gap-10">
+            {image ? (
+              <figure className="overflow-hidden border border-rule bg-surface sm:hidden">
+                <img
+                  src={image}
+                  alt={`${title} — screenshot`}
+                  width={1000}
+                  height={479}
+                  loading="lazy"
+                  decoding="async"
+                  className="block w-full"
+                  style={{ aspectRatio: '1000 / 479' }}
+                />
+              </figure>
+            ) : null}
+
             <p className="text-[0.9375rem] leading-relaxed text-muted sm:col-span-6 sm:col-start-2 lg:col-span-5">
               {blurb}
             </p>
@@ -107,19 +129,26 @@ function Row({ project, open, onToggle }) {
 
 export function Work() {
   const [openId, setOpenId] = useState(projects[0]?.id ?? null)
+  const [hovered, setHovered] = useState(null)
+
+  // Only projects that actually have a capture drive the preview; hovering the
+  // rest simply hides it rather than showing an empty frame.
+  const onHover = (project) => setHovered(project?.image ? project : null)
 
   return (
     <Section id="work" index="01" title="Selected work" label={`${projects.length} projects`}>
-      <ul className="border-t border-rule">
+      <ul className="border-t border-rule" onMouseLeave={() => setHovered(null)}>
         {projects.map((project) => (
           <Row
             key={project.id}
             project={project}
             open={openId === project.id}
             onToggle={() => setOpenId((current) => (current === project.id ? null : project.id))}
+            onHover={onHover}
           />
         ))}
       </ul>
+      <HoverPreview project={hovered} />
     </Section>
   )
 }

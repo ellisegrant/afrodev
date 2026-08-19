@@ -42,6 +42,37 @@ Theme is toggled by a class on `<html>`, persisted to `localStorage`, and set by
 a small inline script in `index.html` before first paint so the page never
 flashes the wrong theme.
 
+## Project images
+
+Images live in `public/projects/` and are referenced by the `image` field on
+each project in `src/content.js`. A project without one renders no preview —
+nothing breaks, so add them as you get them.
+
+On pointer devices, hovering a project row floats a thumbnail that follows the
+cursor (`src/components/HoverPreview.jsx`). On phones the image sits inside the
+expanded row instead. Position is written directly to the node inside a rAF
+loop rather than held in React state, so moving the mouse does not re-render
+the list.
+
+Target roughly **1000×480** — a 2:1 crop of the top of the page, which keeps the
+site's own nav in frame. To capture one:
+
+```bash
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+  --headless=new --hide-scrollbars --window-size=1440,900 \
+  --virtual-time-budget=8000 --screenshot=shot.png "https://example.com"
+```
+
+Then crop off anything below ~690px (cookie banners tend to live there), scale
+to 1000px wide, and save as JPEG around quality 82 — that lands each image
+under ~90KB. Any image editor does this; `sips -s format jpeg -s formatOptions
+82` handles the last step from the terminal.
+
+**Still missing captures:** GoGMI LMS, WatchWithMe and Staay. Each needs
+credentials (Postgres, Supabase) to run locally, so they could not be captured
+from source — deploy them, or drop screenshots into `public/projects/` and set
+the `image` field.
+
 ## Mobile
 
 Phones get app chrome rather than a shrunk-down desktop page:
