@@ -44,42 +44,42 @@ export const links = [
 export const projects = [
   {
     id: '001',
-    title: 'GoGMI LMS',
+    title: 'GoGMI Learning Platform',
     year: '2026',
-    role: 'Full-stack', // TODO: solo? team? client name?
+    role: 'Full-stack',
     blurb:
-      'A learning management system built end to end — course delivery on the front, a hardened Express API behind it. Role-based access, JWT sessions, file uploads and request validation at every boundary.',
+      'The learning management system for the Gulf of Guinea Maritime Institute — professional maritime courses, certifications and CPD point tracking. Course delivery on the front, a hardened Express API behind it: role-based access, JWT sessions, file uploads and request validation at every boundary.',
     stack: ['React', 'Vite', 'Express', 'Prisma', 'PostgreSQL', 'JWT', 'Zod'],
-    href: null, // TODO: live URL
-    repo: null, // TODO: repo URL
-    image: null, // TODO: needs Postgres + env to run, so I could not capture it
+    href: 'https://lms.gogmi.org.gh',
+    repo: 'https://github.com/GoGMI-Ghana/GoGMI-LMS',
+    image: '/projects/lms.jpg',
     note: 'Frontend, API and schema.',
   },
   {
     id: '002',
-    title: 'WatchWithMe',
+    title: 'GoGMI Intranet',
     year: '2026',
     role: 'Full-stack',
     blurb:
-      'Real-time watch parties. Everyone in a room stays frame-aligned on the same video — the hard part is not the player, it is reconciling clocks and late joiners over sockets without the room drifting apart.',
-    stack: ['React', 'Socket.IO', 'Express', 'Supabase', 'YouTube API'],
-    href: null,
-    repo: null,
-    image: null, // TODO: needs Supabase credentials to run
-    note: 'Realtime sync, rooms, presence.',
+      'The internal portal the institute runs on — staff collaboration, work management and organisation-wide updates behind a single sign-in. Built as a separate frontend and backend so the intranet could evolve without touching the public site.',
+    stack: ['React', 'Vite', 'Express', 'Node', 'PostgreSQL'],
+    href: 'https://intranet.gogmi.org.gh',
+    repo: 'https://github.com/ellisegrant/Gogmi-Intranet',
+    image: '/projects/intranet.jpg',
+    note: 'Separate frontend and backend services.',
   },
   {
     id: '003',
-    title: 'Staay',
+    title: 'Jesley',
     year: '2026',
-    role: 'Frontend',
+    role: 'Full-stack',
     blurb:
-      'A 3D web experience rendered in the browser with React Three Fiber — scene composition, animation choreography and state kept light enough to hold sixty frames on a mid-range phone.',
-    stack: ['React Three Fiber', 'Three.js', 'Zustand', 'Framer Motion', 'Supabase'],
-    href: null,
-    repo: null,
-    image: null, // TODO: needs Supabase credentials to run
-    note: 'WebGL, motion, performance budget.',
+      'Watch together, anywhere. Everyone in a room stays frame-aligned on the same video — the hard part is not the player, it is reconciling clocks and late joiners over sockets without the room drifting apart. Guest access means a room is one link away, no account required.',
+    stack: ['React', 'Socket.IO', 'Express', 'Supabase', 'YouTube API'],
+    href: 'https://jesley.vercel.app',
+    repo: 'https://github.com/ellisegrant/WatchWithMe-Frontend',
+    image: '/projects/watchwithme.jpg',
+    note: 'Realtime sync, rooms, presence.',
   },
   {
     id: '004',
@@ -89,23 +89,53 @@ export const projects = [
     blurb:
       'A podcast site with real routes, per-episode social cards generated at build time, and an editorial layout that gives long-form show notes room to breathe.',
     stack: ['Vite', 'React Router', 'Tailwind', 'Vercel'],
-    href: 'https://www.thecabintea.com/',
-    repo: null,
+    href: 'https://www.thecabintea.com',
+    repo: 'https://github.com/ellisegrant/TheCabinteaPodcast',
     image: '/projects/cabintea.jpg',
     note: 'Build-time meta generation.',
   },
   {
     id: '005',
+    title: 'Staay',
+    year: '2026',
+    role: 'Frontend',
+    blurb:
+      'A beauty and fashion storefront with a 3D web experience rendered in the browser through React Three Fiber — scene composition, animation choreography and state kept light enough to hold sixty frames on a mid-range phone.',
+    stack: ['React Three Fiber', 'Three.js', 'Zustand', 'Framer Motion', 'Supabase'],
+    href: 'https://staayonline.com',
+    repo: 'https://github.com/staaybystaay/staayonline',
+    // TODO: needs a screenshot — the live site opens with a mailing-list modal
+    // that blocks automated capture. Drop a 1440x690 image at this path.
+    image: null,
+    note: 'WebGL, motion, performance budget.',
+  },
+  {
+    id: '006',
     title: 'Inoxcel',
     year: '2026',
     role: 'Frontend',
     blurb:
       'Marketing site for a delivery consultancy. Every service is a real, linkable route rather than a client-side tab switch — shareable, indexable, and correct with the back button.',
     stack: ['React', 'React Router v7', 'Vite'],
-    href: null, // TODO: live URL — captured from a local build
-    repo: null,
+    href: 'https://inoxcel-site.vercel.app',
+    repo: 'https://github.com/ellisegrant/inoxcel-site-',
     image: '/projects/inoxcel.jpg',
     note: 'Routing architecture, page system.',
+  },
+  {
+    id: '007',
+    title: 'GoGMI Institute Site',
+    year: '2026',
+    role: 'Frontend',
+    blurb:
+      'The public face of the Gulf of Guinea Maritime Institute — the organisation, its areas of work and its research, presented for a policy audience rather than a consumer one.',
+    stack: ['React', 'Vite', 'Framer Motion', 'Radix UI', 'Tailwind'],
+    href: 'https://gogmi.org.gh',
+    repo: 'https://github.com/ellisegrant/Gogmi-v.20',
+    // TODO: needs a screenshot — the homepage opens with a full-screen event
+    // announcement that blocks automated capture.
+    image: null,
+    note: 'Public site for the institute.',
   },
 ]
 
