@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react'
+import { NavLink, Link } from 'react-router-dom'
 import { links, person } from '../content'
 import { ThemeToggle } from './ThemeToggle'
 
 // Phones navigate from the bottom tab bar, so the pill carries only the
 // wordmark and controls there — the same split a native app uses.
 const items = [
-  { href: '#work', label: 'Work' },
-  { href: '#about', label: 'About' },
-  { href: '#stack', label: 'Stack' },
-  { href: '#contact', label: 'Contact' },
+  { to: '/work', label: 'Work' },
+  { to: '/writing', label: 'Writing' },
+  { to: '/about', label: 'About' },
+  { to: '/contact', label: 'Contact' },
 ]
 
 const MailIcon = () => (
@@ -42,25 +43,29 @@ export function Nav() {
             : 'border-rule/70 bg-paper/70'
         }`}
       >
-        <a
-          href="#top"
+        <Link
+          to="/"
           className="label whitespace-nowrap px-1 text-ink transition-opacity hover:opacity-60"
         >
           <span className="hidden lg:inline">{person.name}</span>
           <span className="mx-2 hidden text-muted lg:inline">/</span>
           <span className="text-accent">{person.alias}</span>
-        </a>
+        </Link>
 
         <span aria-hidden="true" className="hidden h-4 w-px bg-rule sm:block" />
 
         {items.map((item) => (
-          <a
-            key={item.href}
-            href={item.href}
-            className="label hidden whitespace-nowrap px-1 transition-colors hover:text-ink sm:inline-block"
+          <NavLink
+            key={item.to}
+            to={item.to}
+            className={({ isActive }) =>
+              `label hidden whitespace-nowrap px-1 transition-colors hover:text-ink sm:inline-block ${
+                isActive ? 'text-ink' : ''
+              }`
+            }
           >
             {item.label}
-          </a>
+          </NavLink>
         ))}
 
         <span aria-hidden="true" className="hidden h-4 w-px bg-rule sm:block" />

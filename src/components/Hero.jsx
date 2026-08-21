@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { focus, hero, person } from '../content'
 import { Clock } from './Clock'
 
@@ -12,9 +13,9 @@ function Statement({ line, emphasis }) {
 
   return line.split(pattern).map((chunk, i) =>
     emphasis.includes(chunk) ? (
-      <em key={i} className="font-display italic text-accent">
+      <span key={i} className="text-accent">
         {chunk}
-      </em>
+      </span>
     ) : (
       <span key={i}>{chunk}</span>
     ),
@@ -25,13 +26,13 @@ function Statement({ line, emphasis }) {
 function Intro({ segments }) {
   return segments.map((segment, i) =>
     segment.href ? (
-      <a
+      <Link
         key={i}
-        href={segment.href}
+        to={segment.href}
         className="link-underline text-accent transition-opacity hover:opacity-75"
       >
         {segment.text}
-      </a>
+      </Link>
     ) : (
       <span key={i}>{segment.text}</span>
     ),
@@ -40,7 +41,7 @@ function Intro({ segments }) {
 
 export function Hero() {
   return (
-    <section id="top" className="shell pb-16 pt-10 sm:pb-24 sm:pt-14 lg:pb-32 lg:pt-20">
+    <section className="shell pb-16 pt-10 sm:pb-24 sm:pt-14 lg:pb-32 lg:pt-20">
       <div className="reveal label mb-10 flex flex-col gap-y-1.5 sm:mb-16 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-6 sm:gap-y-2">
         <span>{person.role}</span>
         <span aria-hidden="true" className="hidden text-rule sm:inline">—</span>
@@ -52,7 +53,7 @@ export function Hero() {
       <div className="grid gap-x-8 gap-y-12 lg:grid-cols-12">
         <div className="lg:col-span-8">
           <h1
-            className="reveal font-display text-[2.75rem] leading-[1.04] tracking-[-0.015em] sm:text-6xl lg:text-[4.75rem]"
+            className="reveal font-display text-[2.6rem] font-extrabold leading-[1.02] tracking-[-0.03em] sm:text-6xl lg:text-[4.6rem]"
             style={{ transitionDelay: '80ms' }}
           >
             <Statement line={hero.line} emphasis={hero.emphasis} />
@@ -78,12 +79,9 @@ export function Hero() {
                 {person.availableNote}
               </span>
             ) : null}
-            <a
-              href="#work"
-              className="link-underline font-mono text-[0.6875rem] uppercase tracking-widest2 text-ink"
-            >
-              See selected work
-            </a>
+            <Link to="/work" className="link-underline label text-ink">
+              See selected work →
+            </Link>
           </div>
         </div>
 

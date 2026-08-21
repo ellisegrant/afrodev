@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { projects } from '../content'
-import { Section } from './Section'
 import { HoverPreview } from './HoverPreview'
 
 /** github.com/owner/name -> owner/name, for the mono slug under a title. */
@@ -32,7 +31,7 @@ function Row({ project, open, onToggle, onHover }) {
 
         <span className="min-w-0">
           <span
-            className={`flex items-baseline gap-3 font-display text-2xl leading-tight transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:text-4xl lg:text-5xl ${
+            className={`flex items-baseline gap-3 font-display text-[1.65rem] font-bold leading-tight tracking-[-0.02em] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:text-[2.1rem] lg:text-[2.4rem] ${
               open ? 'translate-x-0' : 'group-hover:translate-x-2'
             }`}
           >
@@ -150,8 +149,9 @@ function Row({ project, open, onToggle, onHover }) {
   )
 }
 
-export function Work() {
-  const [openId, setOpenId] = useState(projects[0]?.id ?? null)
+export function WorkList({ limit }) {
+  const shown = limit ? projects.slice(0, limit) : projects
+  const [openId, setOpenId] = useState(shown[0]?.id ?? null)
   const [hovered, setHovered] = useState(null)
 
   // Only projects that actually have a capture drive the preview; hovering the
@@ -159,9 +159,9 @@ export function Work() {
   const onHover = (project) => setHovered(project?.image ? project : null)
 
   return (
-    <Section id="work" index="01" title="Selected work" label={`${projects.length} projects`}>
+    <div className={limit ? '' : 'shell py-12 sm:py-16'}>
       <ul className="border-t border-rule" onMouseLeave={() => setHovered(null)}>
-        {projects.map((project) => (
+        {shown.map((project) => (
           <Row
             key={project.id}
             project={project}
@@ -172,6 +172,6 @@ export function Work() {
         ))}
       </ul>
       <HoverPreview project={hovered} />
-    </Section>
+    </div>
   )
 }

@@ -13,8 +13,11 @@ export default {
         accent: 'rgb(var(--accent) / <alpha-value>)',
       },
       fontFamily: {
-        display: ['"Instrument Serif"', 'Georgia', 'serif'],
-        sans: ['"Instrument Sans"', 'system-ui', 'sans-serif'],
+        // Archivo for anything structural — it holds up at heavy weights and
+        // stays unambiguous at a glance. Inter for reading. Mono is reserved
+        // for genuinely technical text: code, repo paths, stack names.
+        display: ['Archivo', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
       },
       letterSpacing: {

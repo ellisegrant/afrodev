@@ -20,7 +20,7 @@ export default function Post() {
   if (!post) {
     return (
       <article className="shell py-24">
-        <h1 className="font-display text-4xl">Post not found</h1>
+        <h1 className="font-display text-4xl font-bold">Post not found</h1>
         <Link
           to="/"
           className="link-underline mt-6 inline-block font-mono text-[0.6875rem] uppercase tracking-widest2"
@@ -34,7 +34,7 @@ export default function Post() {
   return (
     <article className="shell py-14 sm:py-20">
       <Link
-        to="/#writing"
+        to="/writing"
         className="label link-underline mb-12 inline-block transition-colors hover:text-ink"
       >
         ← Writing
@@ -42,7 +42,7 @@ export default function Post() {
 
       <header className="reveal mb-12 max-w-3xl border-b border-rule pb-10">
         <p className="label mb-5">{post.dateLabel}</p>
-        <h1 className="font-display text-[2.25rem] leading-[1.08] tracking-[-0.015em] sm:text-5xl lg:text-6xl">
+        <h1 className="font-display text-[2.25rem] font-extrabold leading-[1.05] tracking-[-0.03em] sm:text-5xl lg:text-[3.5rem]">
           {post.title}
         </h1>
         {post.summary ? (
@@ -57,7 +57,7 @@ export default function Post() {
           {person.name} — {person.location}
         </p>
         <Link
-          to="/#contact"
+          to="/contact"
           className="link-underline mt-4 inline-block font-mono text-[0.6875rem] uppercase tracking-widest2 text-ink"
         >
           Get in touch

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import { collaboration, contact, person, writing } from '../content'
+import { collaboration, contact, person } from '../content'
 
-export function Contact() {
+export function ContactBody() {
   const [copied, setCopied] = useState(false)
 
   useEffect(() => {
@@ -21,39 +21,39 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="shell border-t border-rule py-20 sm:py-28 lg:py-36">
-      <div className="grid gap-12 lg:grid-cols-12">
-        <div className="reveal lg:col-span-8">
-          <span className="label mb-6 block">{writing.length ? '05' : '04'} — Contact</span>
-          <h2 className="font-display text-4xl leading-[1.05] sm:text-6xl lg:text-7xl">
-            {contact.heading}
-          </h2>
-          <p className="mt-8 max-w-lg text-[0.9375rem] leading-relaxed text-muted">{contact.body}</p>
+    <div className="grid gap-12 lg:grid-cols-12">
+      <div className="reveal lg:col-span-7">
+        <p className="max-w-lg text-base leading-relaxed text-muted">{contact.body}</p>
 
-          {collaboration ? (
-            <div className="mt-10 max-w-lg border-t border-rule pt-6">
-              <span className="label mb-3 block text-accent">{collaboration.label}</span>
-              <p className="text-[0.9375rem] leading-relaxed text-muted">{collaboration.body}</p>
-            </div>
-          ) : null}
-        </div>
+        {collaboration ? (
+          <div className="mt-10 max-w-lg border-t border-rule pt-6">
+            <span className="label mb-3 block text-accent">{collaboration.label}</span>
+            <p className="text-[0.9375rem] leading-relaxed text-muted">{collaboration.body}</p>
+          </div>
+        ) : null}
+      </div>
 
-        <div className="reveal flex flex-col justify-end gap-6 lg:col-span-4" style={{ transitionDelay: '120ms' }}>
+      <div
+        className="reveal flex flex-col gap-6 lg:col-span-4 lg:col-start-9"
+        style={{ transitionDelay: '120ms' }}
+      >
+        <div>
+          <span className="label mb-3 block">Email</span>
           <a
             href={`mailto:${person.email}`}
-            className="link-underline block font-display text-2xl leading-tight sm:text-3xl"
+            className="link-underline block font-display text-lg font-semibold leading-tight tracking-[-0.01em] sm:text-xl"
           >
             {person.email}
           </a>
-          <button
-            type="button"
-            onClick={copy}
-            className="label self-start border border-rule px-4 py-2.5 transition-colors hover:border-ink hover:text-ink"
-          >
-            {copied ? 'Copied to clipboard' : 'Copy address'}
-          </button>
         </div>
+        <button
+          type="button"
+          onClick={copy}
+          className="label self-start border border-rule px-4 py-2.5 transition-colors hover:border-ink hover:text-ink"
+        >
+          {copied ? 'Copied to clipboard' : 'Copy address'}
+        </button>
       </div>
-    </section>
+    </div>
   )
 }

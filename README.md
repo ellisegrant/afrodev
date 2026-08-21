@@ -119,20 +119,45 @@ Icons were generated from SVG via `qlmanage`/`sips`. To regenerate, edit the
 source SVG and re-run those; `icon-maskable-512.png` keeps the glyph inside the
 80% safe zone so Android's mask never clips it.
 
+## Pages
+
+Each section is a real route, not an anchor on one long page:
+
+| Route | Page |
+|---|---|
+| `/` | Hero, current focus, three featured projects, two latest posts |
+| `/work` | Every project |
+| `/writing` | Post list |
+| `/writing/<slug>` | A post |
+| `/about` | Bio, what I'm looking for, links, toolkit |
+| `/contact` | Email and the invitation to build |
+
+`vercel.json` rewrites every path to `index.html` so these survive a refresh.
+
+## Type
+
+**Archivo** for anything structural — headings, labels, nav — because it stays
+unambiguous at small sizes and holds up at heavy weights. **Inter** for reading.
+**JetBrains Mono** only for genuinely technical text: code blocks, repo paths,
+stack names.
+
+Metadata labels use the display face rather than wide-tracked mono. Monospace at
+11px with 0.22em tracking looks good in a screenshot and is slow to actually read,
+and those labels appear on every page.
+
 ## Structure
 
 ```
 src/
   content.js              all copy, projects, links
-  App.jsx                 section order
-  index.css               design tokens + shared classes (.label, .shell, .reveal)
-  hooks/useReveal.js      one IntersectionObserver for all scroll reveals
-  components/
-    Nav, Hero, Work, About, Stack, Contact, Footer
-    TabBar.jsx              mobile bottom tab bar + scroll spy
-    Section.jsx           shared numbered section header
-    Clock.jsx             live Accra time
-    ThemeToggle.jsx
+  main.jsx                routes + app shell (nav, footer, tab bar)
+  index.css               design tokens, .label, .prose, reveals
+  pages/                  Home, WorkPage, WritingPage, AboutPage, ContactPage, Post, NotFound
+  posts/*.md              blog posts, frontmatter + body
+  lib/posts.js            reads and sorts the Markdown
+  components/             Hero, Work, About, Stack, Writing, Contact, Nav, TabBar,
+                          Footer, PageHeader, HoverPreview, Clock, ThemeToggle
+  hooks/                  useReveal, usePageTitle
 ```
 
 ## Before deploying

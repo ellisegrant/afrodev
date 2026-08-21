@@ -27,11 +27,11 @@ export const hero = {
   // an `href` renders in the accent colour and navigates; plain strings do not.
   intro: [
     { text: 'Full-stack developer working across React, Node and Postgres. Most of my ' },
-    { text: 'work', href: '#work' },
+    { text: 'work', href: '/work' },
     { text: ' is the unglamorous middle: auth that actually locks, schemas that survive a change of mind, interfaces people do not need explained to them. More on ' },
-    { text: 'how I think', href: '#about' },
+    { text: 'how I think', href: '/about' },
     { text: ' and ' },
-    { text: 'what I reach for', href: '#stack' },
+    { text: 'what I reach for', href: '/about' },
     { text: '.' },
   ],
 }
